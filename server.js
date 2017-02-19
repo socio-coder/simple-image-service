@@ -19,6 +19,7 @@ server.get('/qr-codes/files', function(req, res) {
     });
 });
 server.use('/qr-codes', express.static('qrcodes'));
+server.use('/events', express.static('events'));
 server.use('/', express.static('site'));
 
 server.listen(process.env.port || process.env.PORT || 3978, function() {
