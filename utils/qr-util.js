@@ -12,6 +12,16 @@ function generateQr(id, data) {
     });
 
 }
+
+function getAllQRCodes() {
+    return new Promise(function(resolve, reject) {
+        require("fs").readdir("./qrcodes/", (err, files) => {
+            if (!err) resolve(files);
+            else reject(err);
+        })
+    });
+}
 module.exports = {
-    generateQr: generateQr
+    generateQr: generateQr,
+    getAllQRCodes: getAllQRCodes
 }

@@ -11,6 +11,13 @@ server.post('/qr-generate', function(req, res) {
         res.status(500).send(err);
     });
 });
+server.get('/qr-codes/files', function(req, res) {
+    qrUtil.getAllQRCodes().then(function(result) {
+        res.status(200).send(result);
+    }).catch(function(err) {
+        res.status(500).send(err);
+    });
+});
 server.use('/qr-codes', express.static('qrcodes'));
 server.use('/', express.static('site'));
 
